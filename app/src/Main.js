@@ -3,8 +3,10 @@ define(function (require) {
     var entities = require("Entities");
     var spriteSheetSystem = require("axis/systems/SpriteSheetSystem");
     var keyboardInputSystem = require("axis/systems/KeyboardInputSystem");
+    var marioMovementSystem = require("systems/MarioMovementSystem");
     var renderSystem = require("axis/systems/RenderSystem");
     var stateSystem = require("axis/systems/StateSystem");
+    var spriteAnimationSystem = require("axis/systems/SpriteAnimationSystem");
 
     var init = function () {
         var superMario = new Axis.Game();
@@ -16,7 +18,9 @@ define(function (require) {
         superMario.addSpriteSheet("app/img/spritesheet.png");
         superMario.addSystems([spriteSheetSystem,
                                  keyboardInputSystem,
+                                 marioMovementSystem,
                                  stateSystem,
+                                 spriteAnimationSystem,
                                  renderSystem]);
 
         entities.init(superMario);
